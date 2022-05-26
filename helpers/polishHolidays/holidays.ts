@@ -1,4 +1,5 @@
 import { Holiday } from '../../types';
+import { getArrayOfEasterMonday } from './easter';
 
 // 19 lutego – Dzień Nauki Polskiej (ustanowiony w 2020, jako święto państwowe)[20]
 // 1 marca – Narodowy Dzień Pamięci „Żołnierzy Wyklętych” (ustanowiony w 2011, jako święto państwowe)[14]
@@ -74,3 +75,7 @@ export const Pentecost: Holiday[] = [
   { day: 1, month: 6, year: 2031 },
   { day: 16, month: 5, year: 2032 },
 ];
+
+const EasterMondays: Holiday[] = getArrayOfEasterMonday(2022, 2032);
+
+export const holidays = [...publicHolidays, ...Pentecost, ...EasterMondays];
