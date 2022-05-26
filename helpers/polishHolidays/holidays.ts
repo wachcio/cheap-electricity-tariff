@@ -14,7 +14,21 @@ import { Holiday } from '../../types';
 // 11 listopada – Narodowe Święto Niepodległości (ustanowione w 1937[5], ponownie w 1989)[9]
 // 27 grudnia – Narodowy Dzień Zwycięskiego Powstania Wielkopolskiego (ustanowiony w 2021, jako święto państwowe)[21]
 
+//Inne dni ustawowo wolne od pracy w 2022
+// Nowy Rok                                            1 stycznia sobota
+// Święto Trzech Króli                            6 stycznia śczwartek
+// Wielkanoc                                            17 kwietnia niedziela
+// Poniedziałek Wielkanocny                18 kwietnia poniedziałek
+// Zielone Świątki                                   5 czerwca niedziela
+// Dzień Bożego Ciała                            16 czerwca czwartek
+// Wniebowzięcie NMP                          15 sierpnia poniedziałek
+// Wszystkich Świętych                         1 listopada wtorek
+// I Dzień Bożego Narodzenia               25 grudnia niedziela
+// II Dzień Bożego Narodzenia              26 grudnia poniedziałek
+
 export const publicHolidays: Holiday[] = [
+  { day: 1, month: 1 },
+  { day: 6, month: 1 },
   { day: 19, month: 2 },
   { day: 1, month: 3 },
   { day: 24, month: 3 },
@@ -24,8 +38,39 @@ export const publicHolidays: Holiday[] = [
   { day: 8, month: 5 },
   { day: 12, month: 7 },
   { day: 1, month: 8 },
+  { day: 15, month: 8 },
   { day: 31, month: 8 },
   { day: 19, month: 10 },
+  { day: 1, month: 11 },
   { day: 11, month: 11 },
+  { day: 25, month: 12 },
+  { day: 26, month: 12 },
   { day: 27, month: 12 },
+];
+
+//Zielone Świątki w latach następnych
+// 5 czerwca 2022
+// 28 maja 2023
+// 19 maja 2024
+// 8 czerwca 2025
+// 24 maja 2026
+// 16 maja 2027
+// 4 czerwca 2028
+// 20 maja 2029
+// 9 czerwca 2030
+// 1 czerwca 2031
+// 16 maja 2032
+
+export const Pentecost: Holiday[] = [
+  { day: 5, month: 6, year: 2022 },
+  { day: 28, month: 5, year: 2023 },
+  { day: 19, month: 5, year: 2024 },
+  { day: 8, month: 6, year: 2025 },
+  { day: 24, month: 5, year: 2026 },
+  { day: 16, month: 5, year: 2027 },
+  { day: 4, month: 6, year: 2028 },
+  { day: 20, month: 5, year: 2029 },
+  { day: 9, month: 6, year: 2030 },
+  { day: 1, month: 6, year: 2031 },
+  { day: 16, month: 5, year: 2032 },
 ];
