@@ -4,12 +4,20 @@ import timezone from 'dayjs/plugin/timezone'; // dependent on utc plugin
 import 'dayjs/locale/pl';
 
 import { Tariff } from '../../types/tariff';
+import { holidays } from '../polishHolidays/holidays';
 
 dayjs.locale('pl'); // use locale globally
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
 dayjs.tz.setDefault('Europe/Warsaw');
+
+const addYearToHolidays = (dateTime: Date | Dayjs) => {
+  const year = dayjs(dateTime).year();
+
+  const holidaysWhitYear = holidays.map(e => (!e.year ? { ...e, year } : { ...e }));
+  //   console.log(holidaysWhitYear);
+};
 
 export const isCheapTariff = (
   dateTime: Date | Dayjs = new Date(),
@@ -28,6 +36,7 @@ export const isCheapTariff = (
     ) {
       return true;
     }
+    addYearToHolidays(dateTime);
     return false;
   }
   if (tariff == Tariff.G12) {
