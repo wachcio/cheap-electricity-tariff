@@ -33,7 +33,7 @@ const addYearToHolidays = (dateTime: Date | Dayjs): Array<Dayjs> => {
 
 export const isCheapTariff = (
   dateTime: Date | Dayjs = new Date(),
-  tariff: Tariff = Tariff.G12W,
+  tariff: Tariff = Tariff.Energa_G12W,
 ): boolean => {
   dateTime = dayjs.tz(dateTime);
 
@@ -45,7 +45,7 @@ export const isCheapTariff = (
   // - sundays
   // - polish public holidays
 
-  if (tariff == Tariff.G12W) {
+  if (tariff == Tariff.Energa_G12W) {
     if (
       dateTime.hour() < 6 ||
       dateTime.hour() >= 22 ||
@@ -71,7 +71,7 @@ export const isCheapTariff = (
   //   - 13:00 - 15:00
   //   - 22:00 - 23:59
 
-  if (tariff == Tariff.G12) {
+  if (tariff == Tariff.Energa_G12) {
     if (
       dateTime.hour() < 6 ||
       dateTime.hour() >= 22 ||
@@ -87,7 +87,7 @@ export const isCheapTariff = (
   // - 13:00 - 16:00
   // - 22:00 - 23:59
 
-  if (tariff == Tariff.G12R) {
+  if (tariff == Tariff.Energa_G12R) {
     if (
       dateTime.hour() < 7 ||
       dateTime.hour() >= 22 ||
