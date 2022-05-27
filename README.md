@@ -56,3 +56,18 @@ _Not included in Enea_
 
 - 1:00 - 5:00
 - sundays
+
+## E.On tariffs
+
+### Tariff G12 cheap hours:
+
+- 00:00 - 6:00
+- 13:00 - 15:00
+- 22:00 - 23:59
+
+### Tariff G12W cheap hours:
+
+- 00:00 - 6:00
+- 22:00 - 23:59
+- saturdays
+- sundays
