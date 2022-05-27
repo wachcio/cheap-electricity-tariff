@@ -4,7 +4,7 @@ The program shows whether there is a cheap electricity tariff now or at a given 
 
 ## Main function:
 
-`isCheapTariff(date: Date, tariff: Tariff);`
+`isCheapTariff = ( dateTime: Date | Dayjs = new Date(), tariff: Tariff = Tariff.Energa_G12W, ): boolean`
 
 Exampel:
 `isCheapTariff(new Date(2022, 1, 1, 12, 50), Tariff.Energa_G12W)`
