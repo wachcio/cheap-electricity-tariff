@@ -37,7 +37,7 @@ export const isCheapTariff = (
 ): boolean => {
   dateTime = dayjs(dateTime).subtract(1, 'month').tz();
 
-  // Tariff G12W Energa and PGE cheap hours:
+  // Tariff G12W Energa, PGE and Enea cheap hours:
   // - 00:00 - 6:00
   // - 13:00 - 15:00
   // - 22:00 - 23:59
@@ -45,7 +45,7 @@ export const isCheapTariff = (
   // - sundays
   // - polish public holidays --!NOT included in PGE
 
-  if (tariff == Tariff.Energa_G12W || tariff == Tariff.PGE_G12W) {
+  if (tariff == Tariff.Energa_G12W || tariff == Tariff.PGE_G12W || tariff == Tariff.Enea_G12W) {
     if (
       dateTime.hour() < 6 ||
       dateTime.hour() >= 22 ||
@@ -56,7 +56,7 @@ export const isCheapTariff = (
 
     if (dateTime.weekday() === 5 || dateTime.weekday() === 6) return true;
 
-    if (tariff == Tariff.Energa_G12W) {
+    if (tariff == Tariff.Energa_G12W || tariff == Tariff.Enea_G12W) {
       const dateTimeAndHolidaysComparation = addYearToHolidays(dateTime).map(e =>
         e.isSame(dateTime, 'day'),
       );
@@ -66,13 +66,13 @@ export const isCheapTariff = (
     return false;
   }
 
-  // Tariff G12 Energa and PGE cheap hours:
+  // Tariff G12 Energa, PGE and Enea cheap hours:
 
   //   - 00:00 - 6:00
   //   - 13:00 - 15:00
   //   - 22:00 - 23:59
 
-  if (tariff == Tariff.Energa_G12 || tariff == Tariff.PGE_G12) {
+  if (tariff == Tariff.Energa_G12 || tariff == Tariff.PGE_G12 || tariff == Tariff.Enea_G12) {
     if (
       dateTime.hour() < 6 ||
       dateTime.hour() >= 22 ||

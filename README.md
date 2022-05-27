@@ -9,9 +9,11 @@ The program shows whether there is a cheap electricity tariff now or at a given 
 Exampel:
 `isCheapTariff(new Date(2022, 1, 1, 12, 50), Tariff.Energa_G12W)`
 
-## Energa SA tariffs
+## Energa SA and Enea tariffs
 
 ### Tariff G12 cheap hours:
+
+_In Enea tariff: The control clocks in the measurement and billing systems are set according to the winter time and do not change during the year, unless the control device automatically maintains the hours during the summer time period as well._
 
 - 00:00 - 6:00
 - 13:00 - 15:00
@@ -27,6 +29,8 @@ Exampel:
 - polish public holidays
 
 ### Tariff G12R cheap hours:
+
+_Not included in Enea_
 
 - 00:00 - 7:00
 - 13:00 - 16:00
