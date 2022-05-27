@@ -8,7 +8,8 @@
   "scripts": {
     "start": "ts-node index.ts",
     "start:dev": "ts-node-dev index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
   },
   "keywords": [],
   "dependencies": {
