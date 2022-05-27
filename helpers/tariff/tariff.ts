@@ -35,17 +35,17 @@ export const isCheapTariff = (
   dateTime: Date | Dayjs = new Date(),
   tariff: Tariff = Tariff.Energa_G12W,
 ): boolean => {
-  dateTime = dayjs.tz(dateTime);
+  dateTime = dayjs(dateTime).subtract(1, 'month').tz();
 
-  // Tariff G12W cheap hours:
+  // Tariff G12W Energa and PGE cheap hours:
   // - 00:00 - 6:00
   // - 13:00 - 15:00
   // - 22:00 - 23:59
   // - saturdays
   // - sundays
-  // - polish public holidays
+  // - polish public holidays --!NOT included in PGE
 
-  if (tariff == Tariff.Energa_G12W) {
+  if (tariff == Tariff.Energa_G12W || tariff == Tariff.PGE_G12W) {
     if (
       dateTime.hour() < 6 ||
       dateTime.hour() >= 22 ||
@@ -53,25 +53,26 @@ export const isCheapTariff = (
     ) {
       return true;
     }
-    dateTime = dayjs(dateTime).subtract(1, 'month').tz();
 
     if (dateTime.weekday() === 5 || dateTime.weekday() === 6) return true;
 
-    const dateTimeAndHolidaysComparation = addYearToHolidays(dateTime).map(e =>
-      e.isSame(dateTime, 'day'),
-    );
-    if (dateTimeAndHolidaysComparation.includes(true) === true) return true;
+    if (tariff == Tariff.Energa_G12W) {
+      const dateTimeAndHolidaysComparation = addYearToHolidays(dateTime).map(e =>
+        e.isSame(dateTime, 'day'),
+      );
 
+      if (dateTimeAndHolidaysComparation.includes(true) === true) return true;
+    }
     return false;
   }
 
-  // Tariff G12 cheap hours:
+  // Tariff G12 Energa and PGE cheap hours:
 
   //   - 00:00 - 6:00
   //   - 13:00 - 15:00
   //   - 22:00 - 23:59
 
-  if (tariff == Tariff.Energa_G12) {
+  if (tariff == Tariff.Energa_G12 || tariff == Tariff.PGE_G12) {
     if (
       dateTime.hour() < 6 ||
       dateTime.hour() >= 22 ||
@@ -82,7 +83,7 @@ export const isCheapTariff = (
     return false;
   }
 
-  // Tariff G12R cheap hours:
+  // Tariff Energa G12R cheap hours:
   // - 00:00 - 7:00
   // - 13:00 - 16:00
   // - 22:00 - 23:59
@@ -93,6 +94,20 @@ export const isCheapTariff = (
       dateTime.hour() >= 22 ||
       (dateTime.hour() >= 13 && dateTime.hour() < 16)
     ) {
+      return true;
+    }
+    return false;
+  }
+
+  //   Tariff PGE G12N cheap hours:
+
+  // - 1:00 - 5:00
+  // - sundays
+
+  if (tariff == Tariff.PGE_G12N) {
+    if (dateTime.weekday() === 6) return true;
+
+    if (dateTime.hour() >= 1 && dateTime.hour() < 5) {
       return true;
     }
     return false;

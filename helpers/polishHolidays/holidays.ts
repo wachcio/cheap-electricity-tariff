@@ -77,6 +77,6 @@ export const publicHolidays: Holiday[] = [
 //   { day: 16, month: 5, year: 2032 },
 // ];
 
-const EasterMondays: Holiday[] = getArrayOfEasterMonday(2022, 2032);
+const EasterMondays: Holiday[] = getArrayOfEasterMonday(2022, 2042);
 
 export const holidays = [...publicHolidays, ...EasterMondays];
