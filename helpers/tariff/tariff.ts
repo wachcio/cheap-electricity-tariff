@@ -37,7 +37,7 @@ export const isCheapTariff = (
 ): boolean => {
   dateTime = dayjs(dateTime).subtract(1, 'month').tz();
 
-  // Tariff G12W Energa, PGE and Enea cheap hours:
+  // Tariff G12W Energa, PGE, Enea and Tauron cheap hours:
   // - 00:00 - 6:00
   // - 13:00 - 15:00 --!NOT included in E.On
   // - 22:00 - 23:59
@@ -49,9 +49,15 @@ export const isCheapTariff = (
     tariff == Tariff.Energa_G12W ||
     tariff == Tariff.PGE_G12W ||
     tariff == Tariff.Enea_G12W ||
-    tariff == Tariff.E_On_G12W
+    tariff == Tariff.E_On_G12W ||
+    tariff == Tariff.Tauron_G12W
   ) {
-    if (tariff == Tariff.Energa_G12W || tariff == Tariff.PGE_G12W || tariff == Tariff.Enea_G12W) {
+    if (
+      tariff == Tariff.Energa_G12W ||
+      tariff == Tariff.PGE_G12W ||
+      tariff == Tariff.Enea_G12W ||
+      tariff == Tariff.Tauron_G12W
+    ) {
       if (
         dateTime.hour() < 6 ||
         dateTime.hour() >= 22 ||
@@ -62,7 +68,11 @@ export const isCheapTariff = (
     }
     if (dateTime.weekday() === 5 || dateTime.weekday() === 6) return true;
 
-    if (tariff == Tariff.Energa_G12W || tariff == Tariff.Enea_G12W) {
+    if (
+      tariff == Tariff.Energa_G12W ||
+      tariff == Tariff.Enea_G12W ||
+      tariff == Tariff.Tauron_G12W
+    ) {
       const dateTimeAndHolidaysComparation = addYearToHolidays(dateTime).map(e =>
         e.isSame(dateTime, 'day'),
       );
@@ -88,6 +98,24 @@ export const isCheapTariff = (
       dateTime.hour() < 6 ||
       dateTime.hour() >= 22 ||
       (dateTime.hour() >= 13 && dateTime.hour() < 15)
+    ) {
+      return true;
+    }
+    return false;
+  }
+  // Tariff G12 Tauron cheap hours:
+
+  //   - 00:00 - 7:00
+  //   - 13:00 - 16:00
+  //   - 22:00 - 23:59
+  //   8 consecutive hours between 10.00 p.m. and 7.00 a.m. plus 2 consecutive hours from 1 p.m. to 4 p.m.
+  //   The duration of the time zones (start and end hours) in this tariff group is defined by the Operator.
+
+  if (tariff == Tariff.Tauron_G12) {
+    if (
+      dateTime.hour() < 7 ||
+      dateTime.hour() >= 22 ||
+      (dateTime.hour() >= 13 && dateTime.hour() < 16)
     ) {
       return true;
     }

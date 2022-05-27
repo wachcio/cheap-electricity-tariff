@@ -9,4 +9,6 @@ export enum Tariff {
   'PGE_G12',
   'PGE_G12W',
   'PGE_G12N',
+  'Tauron_G12',
+  'Tauron_G12W',
 }

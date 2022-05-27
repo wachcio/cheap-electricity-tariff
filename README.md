@@ -71,3 +71,25 @@ _Not included in Enea_
 - 22:00 - 23:59
 - saturdays
 - sundays
+
+## Tauron tariffs
+
+### Tariff G12 cheap hours:
+
+**It is not possible to correctly calculate the cheap tariff!**
+
+_8 consecutive hours between 10.00 p.m. and 7.00 a.m. plus 2 consecutive hours from 1 p.m. to 4 p.m._
+_The duration of the time zones (start and end hours) in this tariff group is defined by the Operator._
+
+- 00:00 - 7:00
+- 13:00 - 16:00
+- 22:00 - 23:59
+
+### Tariff G12W cheap hours:
+
+- 00:00 - 6:00
+- 13:00 - 15:00
+- 22:00 - 23:59
+- saturdays
+- sundays
+- polish public holidays
