@@ -1,0 +1,16 @@
+{
+  "name": "cheap-electricity-tariff",
+  "version": "0.1.0",
+  "description": "Is now cheap electricity tariff in Poland?",
+  "main": "index.js",
+  "author": "wachcio",
+  "license": "ISC",
+  "scripts": {
+    "start": "node --experimental-specifier-resolution=node index.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "dependencies": {
+    "dayjs": "^1.11.2"
+  }
+}

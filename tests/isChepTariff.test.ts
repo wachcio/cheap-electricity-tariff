@@ -24,5 +24,4 @@ test('Is cheap tariff in Energa', async () => {
   expect(isCheapTariff(new Date(2024, 4, 1, 10, 50), Tariff.Energa_G12W)).toBeTruthy();
   expect(isCheapTariff(new Date(2025, 4, 21, 10, 50), Tariff.Energa_G12W)).toBeTruthy();
   expect(isCheapTariff(new Date(2026, 4, 6, 10, 50), Tariff.Energa_G12W)).toBeTruthy();
-  expect(isCheapTariff(new Date(), Tariff.Energa_G12W)).toBeTruthy();
 });
