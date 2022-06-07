@@ -151,4 +151,5 @@ export const isCheapTariff = (
     }
     return false;
   }
+  return false;
 };
