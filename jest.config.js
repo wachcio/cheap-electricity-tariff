@@ -7,5 +7,5 @@ export default {
   coverageDirectory: './coverage',
   coveragePathIgnorePatterns: ['node_modules', 'src/database', 'src/test', 'src/types'],
   globals: { 'ts-jest': { diagnostics: false } },
-  transform: {},
+  transformIgnorePatterns: ['node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)'],
 };

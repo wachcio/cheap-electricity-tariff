@@ -15,7 +15,6 @@
     "start": "ts-node index.ts",
     "start:dev": "ts-node-dev index.ts",
     "prebuild": "rimraf dist",
-    "postbuild": "cp package_dist.json dist/package.json && cp README.md dist/ ",
     "prebuild_vercel": "rimraf dist",
     "build_vercel": "ncc build ./index.ts -o dist/",
     "build": "npm run build:cjs && npm run build:esm && npm run build:umd && npm run build:types",
