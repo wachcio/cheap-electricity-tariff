@@ -21,13 +21,7 @@ dayjs.tz.setDefault('Europe/Warsaw');
 const addYearToHolidays = (dateTime: Date | Dayjs): Array<Dayjs> => {
   const year = dayjs(dateTime).year();
   return holidays.map(e => {
-    return !e.year
-      ? dayjs([year, e.month - 1, e.day])
-          .add(3, 'hour')
-          .tz()
-      : dayjs([e.year, e.month - 1, e.day])
-          .add(3, 'hour')
-          .tz();
+    return !e.year ? dayjs([year, e.month, e.day]).tz() : dayjs([e.year, e.month, e.day]).tz();
   });
 };
 
@@ -35,7 +29,12 @@ export const isCheapTariff = (
   dateTime: Date | Dayjs = new Date(),
   tariff: Tariff = Tariff.Energa_G12W,
 ): boolean => {
-  dateTime = dayjs(dateTime).subtract(1, 'month').tz();
+  // dateTime = new Date(dateTime.toLocaleString('pl'));
+  // console.log(dateTime);
+
+  dateTime = dayjs(dayjs(dateTime).format());
+  // console.log('locale', dateTime.format());
+  // dateTime = dayjs(dateTime).subtract(1, 'month').tz();
 
   // Tariff G12W Energa, PGE, Enea and Tauron cheap hours:
   // - 00:00 - 6:00
@@ -76,6 +75,7 @@ export const isCheapTariff = (
       const dateTimeAndHolidaysComparation = addYearToHolidays(dateTime).map(e =>
         e.isSame(dateTime, 'day'),
       );
+      // console.log(dateTimeAndHolidaysComparation);
 
       if (dateTimeAndHolidaysComparation.includes(true) === true) return true;
     }

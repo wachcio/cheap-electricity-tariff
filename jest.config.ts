@@ -1,5 +1,6 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
-export default {
+import type { Config } from '@jest/types';
+
+const config: Config.InitialOptions = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   testMatch: ['<rootDir>/src/tests/**/*.spec.ts', '<rootDir>/src/tests/**/*.test.ts'],
@@ -9,3 +10,4 @@ export default {
   globals: { 'ts-jest': { diagnostics: false } },
   transformIgnorePatterns: ['node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)'],
 };
+export default config;

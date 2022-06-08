@@ -31,7 +31,7 @@ function getEasterMonday(year: number): Holiday {
 
   return {
     day: dayjs(date).add(1, 'day').date(),
-    month: dayjs(date).add(1, 'day').month() + 1,
+    month: dayjs(date).add(1, 'day').month(),
     year: dayjs(date).add(1, 'day').year(),
   };
 }
