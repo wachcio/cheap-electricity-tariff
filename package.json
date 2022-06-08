@@ -1,6 +1,6 @@
 {
   "name": "cheap-electricity-tariff",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Is now cheap electricity tariff in Poland?",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -9,7 +9,7 @@
   "author": "wachcio",
   "license": "ISC",
   "scripts": {
-    "postinstall": "husky install",
+    "_postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
     "start": "ts-node index.ts",
