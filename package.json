@@ -7,9 +7,13 @@
   "umd:main": "dist/umd/index.js",
   "types": "dist/types/index.d.js",
   "author": "wachcio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wachcio/cheap-electricity-tariff/tree/master"
+  },
   "license": "ISC",
   "scripts": {
-    "_postinstall": "husky install",
+    "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
     "start": "ts-node index.ts",
