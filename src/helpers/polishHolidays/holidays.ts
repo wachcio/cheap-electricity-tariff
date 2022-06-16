@@ -49,6 +49,20 @@ export const publicHolidays: Holiday[] = [
   { day: 27, month: 11 },
 ];
 
+export const CorpusChristi: Holiday[] = [
+  { day: 16, month: 5, year: 2022 },
+  { day: 8, month: 5, year: 2023 },
+  { day: 30, month: 4, year: 2024 },
+  { day: 19, month: 5, year: 2025 },
+  { day: 4, month: 5, year: 2026 },
+  { day: 27, month: 4, year: 2027 },
+  { day: 15, month: 5, year: 2028 },
+  { day: 31, month: 4, year: 2029 },
+  { day: 20, month: 5, year: 2030 },
+  { day: 12, month: 5, year: 2031 },
+  { day: 27, month: 4, year: 2032 },
+];
+
 const EasterMondays: Holiday[] = getArrayOfEasterMonday(2022, 2042);
 
-export const holidays = [...publicHolidays, ...EasterMondays];
+export const holidays = [...publicHolidays, ...CorpusChristi, ...EasterMondays];
