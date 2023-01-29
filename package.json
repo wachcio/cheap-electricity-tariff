@@ -1,6 +1,6 @@
 {
   "name": "cheap-electricity-tariff",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Is now cheap electricity tariff in Poland?",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
